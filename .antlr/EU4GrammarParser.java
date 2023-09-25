@@ -16,12 +16,12 @@ public class EU4GrammarParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, BOOL=2, INT=3, STRING=4, FLOAT=5, ID=6, IF=7, ELSE=8, ELSE_IF=9, 
-		PLUS=10, MINUS=11, WHITESPACE=12, SINGLE_LINE_COMMENT=13, MODIFIER=14, 
-		MODIFIER_INT=15, MODIFIER_FLOAT=16, MODIFIER_STRING=17, MODIFIER_INT_NAME=18, 
-		MODIFIER_FLOAT_NAME=19, MODIFIER_STRING_NAME=20, EFFECT=21, EFFECT_INT=22, 
-		EFFECT_FLOAT=23, EFFECT_STRING=24, EFFECT_BOOL=25, EFFECT_INT_NAME=26, 
-		EFFECT_FLOAT_NAME=27, EFFECT_STRING_NAME=28, EFFECT_BOOL_NAME=29;
+		T__0=1, BOOL=2, INT=3, STRING=4, FLOAT=5, VALUE_FORMAT=6, ID=7, PLUS=8, 
+		MINUS=9, WHITESPACE=10, SINGLE_LINE_COMMENT=11, IF=12, TRIGGER=13, TRIGGER_NAME=14, 
+		MODIFIER=15, MODIFIER_INT=16, MODIFIER_FLOAT=17, MODIFIER_STRING=18, MODIFIER_INT_NAME=19, 
+		MODIFIER_FLOAT_NAME=20, MODIFIER_STRING_NAME=21, EFFECT=22, EFFECT_INT=23, 
+		EFFECT_FLOAT=24, EFFECT_STRING=25, EFFECT_BOOL=26, EFFECT_INT_NAME=27, 
+		EFFECT_FLOAT_NAME=28, EFFECT_STRING_NAME=29, EFFECT_BOOL_NAME=30;
 	public static final int
 		RULE_keyword = 0;
 	private static String[] makeRuleNames() {
@@ -33,8 +33,8 @@ public class EU4GrammarParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'example_keyword'", null, null, null, null, null, "'if'", "'else'", 
-			"'else_if'", "'+'", "'-'", null, null, null, null, null, null, "'free_leader_pool'", 
+			null, "'example_keyword'", null, null, null, null, null, null, "'+'", 
+			"'-'", null, null, null, null, "'is_core'", null, null, null, null, "'free_leader_pool'", 
 			null, "'PLACEHOLDER'", null, null, null, null, null, "'add_adm_power'", 
 			"'add_years_of_income'", "'exile_ruler_as'", "'restore_country_name'"
 		};
@@ -42,12 +42,12 @@ public class EU4GrammarParser extends Parser {
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, "BOOL", "INT", "STRING", "FLOAT", "ID", "IF", "ELSE", "ELSE_IF", 
-			"PLUS", "MINUS", "WHITESPACE", "SINGLE_LINE_COMMENT", "MODIFIER", "MODIFIER_INT", 
-			"MODIFIER_FLOAT", "MODIFIER_STRING", "MODIFIER_INT_NAME", "MODIFIER_FLOAT_NAME", 
-			"MODIFIER_STRING_NAME", "EFFECT", "EFFECT_INT", "EFFECT_FLOAT", "EFFECT_STRING", 
-			"EFFECT_BOOL", "EFFECT_INT_NAME", "EFFECT_FLOAT_NAME", "EFFECT_STRING_NAME", 
-			"EFFECT_BOOL_NAME"
+			null, null, "BOOL", "INT", "STRING", "FLOAT", "VALUE_FORMAT", "ID", "PLUS", 
+			"MINUS", "WHITESPACE", "SINGLE_LINE_COMMENT", "IF", "TRIGGER", "TRIGGER_NAME", 
+			"MODIFIER", "MODIFIER_INT", "MODIFIER_FLOAT", "MODIFIER_STRING", "MODIFIER_INT_NAME", 
+			"MODIFIER_FLOAT_NAME", "MODIFIER_STRING_NAME", "EFFECT", "EFFECT_INT", 
+			"EFFECT_FLOAT", "EFFECT_STRING", "EFFECT_BOOL", "EFFECT_INT_NAME", "EFFECT_FLOAT_NAME", 
+			"EFFECT_STRING_NAME", "EFFECT_BOOL_NAME"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -130,8 +130,8 @@ public class EU4GrammarParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\37\7\4\2\t\2\3\2"+
-		"\3\2\3\2\2\2\3\2\2\2\2\5\2\4\3\2\2\2\4\5\7\3\2\2\5\3\3\2\2\2\2";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3 \7\4\2\t\2\3\2\3"+
+		"\2\3\2\2\2\3\2\2\2\2\5\2\4\3\2\2\2\4\5\7\3\2\2\5\3\3\2\2\2\2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

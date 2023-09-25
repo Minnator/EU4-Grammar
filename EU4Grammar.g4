@@ -1,17 +1,12 @@
-grammar EU4Grammar;
-
-keyword: 'example_keyword';
+lexer grammar EU4Grammar;
 
 BOOL: 'yes' | 'no';
 INT: [0-9]+;
 STRING: '"'(~('"')|(' '|'\\n'|'\\t'|'\\"'|'\\'))*'"';
 FLOAT: [0-9]+ '.' [0-9]+;
+VALUE_FORMAT: BOOL | INT | STRING | FLOAT;
 //Identifier
 ID: [a-zA-Z_][a-zA-Z0-9_]*;
-//Conditions
-IF: 'if';
-ELSE: 'else';
-ELSE_IF: 'else_if';
 //Calculation symbols
 PLUS: '+';
 MINUS: '-';
@@ -19,6 +14,16 @@ MINUS: '-';
 WHITESPACE: [ \t\r\n]+ -> skip;
 SINGLE_LINE_COMMENT: '#' ~[\r\n]* -> skip;
 
+IF: 'if' '=' '{' 'limit' '=' '{' TRIGGER '}' EFFECT '}';
+ELSE_IF: 'else_if' '=' '{' 'limit' '=' '{' TRIGGER '}' EFFECT '}';
+
+
+TRIGGER
+    : TRIGGER_NAME '=' VALUE_FORMAT 
+    | IF
+    | ELSE_IF;
+TRIGGER_NAME
+    : 'is_core';
 //Modifier
 MODIFIER: MODIFIER_INT | MODIFIER_FLOAT | MODIFIER_STRING;
 MODIFIER_INT: MODIFIER_INT_NAME '=' INT;
