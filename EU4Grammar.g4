@@ -1,48 +1,67 @@
 lexer grammar EU4Grammar;
 
-BOOL: 'yes' | 'no';
+//Unique strings
+AND: 'AND';
+OR: 'OR';
+YES: 'yes' | 'YES';
+NO: 'no' | 'NO';
+NOT: 'NOT' | 'not';
+
+//EU4 Types
+MPOWER: 'ADM' | 'MIL' | 'DIP';
+
+//not sure if not only '[A-Z0-9]{3}' would be enough for a TAG to be recognized
+TAG: (EQUALS | WHITESPACE) [A-Z0-9]{3} (WHITESPACE | RPAR | EQUALS); 
+
+BOOL: YES | NO;
 INT: [0-9]+;
-STRING: '"'(~('"')|(' '|'\\n'|'\\t'|'\\"'|'\\'))*'"';
+STRING: '"'(~('"')|(' '|'\\n'|'\\t'|'\\"'|'\\'))*'"'; //Still need to to the $Y$! amd [Root.GetName] stuff
 FLOAT: [0-9]+ '.' [0-9]+;
-VALUE_FORMAT: BOOL | INT | STRING | FLOAT;
+VALUE: BOOL | TAG | INT | STRING | FLOAT ;
+
 //Identifier
-ID: [a-zA-Z_][a-zA-Z0-9_]*;
-//Calculation symbols
+IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*;
+
+
+//Symbols
+LPAR: '{';
+RPAR: '}';
+EQUALS: '=';
 PLUS: '+';
 MINUS: '-';
+
 //Comment and whitespace
 WHITESPACE: [ \t\r\n]+ -> skip;
 SINGLE_LINE_COMMENT: '#' ~[\r\n]* -> skip;
 
-IF: 'if' '=' '{' 'limit' '=' '{' TRIGGER '}' EFFECT '}';
-ELSE_IF: 'else_if' '=' '{' 'limit' '=' '{' TRIGGER '}' EFFECT '}';
+//Condition
+IF: 'if';
+ELSE: 'else';
+ELSE_IF: 'else_if';
+LIMIT: 'limit';
 
+//Other Keywords
+SKILL_SACLED_MOD: 'skill_scaled_modifier';
+MODIFIER: 'modifier';
+CHANCE: 'chance';
+AI_WILL_DO: 'ai_will_do';
+FACTOR: 'factor';
+TOOLTIP: 'tooltip';
+CUSTOM_TOOLTIP: 'custom_tooltip';
+DESC: 'desc';
+CUSTOM_TRIGGER_TOOLTIP: 'custom_trigger_tooltip';
 
-TRIGGER
-    : TRIGGER_NAME '=' VALUE_FORMAT 
-    | IF
-    | ELSE_IF;
+//Trigger
 TRIGGER_NAME
-    : 'is_core';
-//Modifier
-MODIFIER: MODIFIER_INT | MODIFIER_FLOAT | MODIFIER_STRING;
-MODIFIER_INT: MODIFIER_INT_NAME '=' INT;
-MODIFIER_FLOAT: MODIFIER_FLOAT_NAME '=' FLOAT;
-MODIFIER_STRING: MODIFIER_STRING_NAME '=' STRING;
+    : 'is_core'
+    ;
 
-MODIFIER_INT_NAME: 'free_leader_pool' ;
-MODIFIER_FLOAT_NAME: 'governing_capacity_modifier' | 'global_tax_modifier';
-MODIFIER_STRING_NAME: 'PLACEHOLDER';
+//Modifier
+MODIFIER_NAME
+    : 'monarch_power' 
+    ;
 
 //Effects
-EFFECT: EFFECT_INT | EFFECT_FLOAT | EFFECT_STRING | EFFECT_BOOL;
-
-EFFECT_INT: EFFECT_INT_NAME '=' INT;
-EFFECT_FLOAT: EFFECT_FLOAT_NAME '=' FLOAT;
-EFFECT_STRING: EFFECT_STRING_NAME '=' STRING;
-EFFECT_BOOL: EFFECT_BOOL_NAME '=' BOOL;
-
-EFFECT_INT_NAME: 'add_adm_power';
-EFFECT_FLOAT_NAME: 'add_years_of_income';
-EFFECT_STRING_NAME: 'exile_ruler_as';
-EFFECT_BOOL_NAME: 'restore_country_name';
+EFFECT_NAME
+    : 'add_core'
+    ;
