@@ -5,51 +5,70 @@ options
     }
 
 // Uncategorized Mess :trollface:
-block: LPAR (statement | ifStatement)* RPAR ;                                   //{ <statement> | <ifStatement> }
-simpleBlock: LPAR statement* RPAR;                                              // { <statement> }
-statement: (effect | block) ;                                                   //<effect> | <if>
-value: TAG | INT | FLOAT | STRING | BOOL | IDENTIFIER;
-limit: LIMIT EQUALS LPAR trigger* RPAR;                                          //limit = { <trigger> }
-eLSE: ELSE EQUALS LPAR effect* RPAR;                                            //else = { <effect> }
-elseIf: ELSE_IF LPAR EQUALS limit effect* RPAR;                                 //else_if = { <limit> <effect> }
-ifStatement: IF EQUALS LPAR limit effect* RPAR (eLSE | elseIf)*;                        //if = { <limit> }
-scriptedEffect: IDENTIFIER EQUALS (simpleBlock | YES);                          //<IDENTIFIER> = <simpleblock> | YES
-effect: (EFFECT_NAME EQUALS value) | scriptedEffect | ifStatement;              //(<EFFECT> | <scriptedEffect> | <ifStatement>)
-modifier: MODIFIER_NAME EQUALS value;                                           //<modifier_name> = <value>
-// NOT AND OR not sure how to do that yet
-scriptedTrigger: IDENTIFIER EQUALS LPAR trigger* RPAR;                          //<IDENTIFIER> = { <triggers> }
-factor: FACTOR EQUALS (INT | FLOAT);                                            //factor = <int> | <float>
-chanceMod: MODIFIER EQUALS LPAR factor trigger* RPAR;                           //modifier = { <factor> <trigger> }
-chance: CHANCE EQUALS LPAR factor chanceMod* RPAR;                           //chance = { <factor> <ChanceMod> }
+//blocks
+file
+    : advisor
+    ;
+block: LPAR (statement | ifStatement)* RPAR ;    
+simpleBlock: LPAR statement* RPAR;      
+statement: (effect | block) ;
+triggerBlock: TRIGGER EQUALS LPAR trigger* RPAR;
+effectBlock: EFFECT EQUALS LPAR effect* RPAR;
+modifierBlock: MODIFIER EQUALS LPAR modifier* RPAR;
+chanceBlock: CHANCE EQUALS LPAR factor chanceMod* RPAR;
+aiWillDoBlock: AI_WILL_DO EQUALS LPAR factor chanceMod* RPAR;
 
-// Triggers
+//base tokens
+value: TAG | INT | FLOAT | SCOPE | YES | NO | IDENTIFIER | STRING;
+
+//if & else & conditions
+limit: LIMIT EQUALS LPAR trigger* RPAR;                                        
+eLSE: ELSE EQUALS LPAR effect* RPAR;                                           
+elseIf: ELSE_IF LPAR EQUALS limit effect* RPAR;                               
+ifStatement: IF EQUALS LPAR limit effect* RPAR (eLSE | elseIf)*; 
+
+//effects & modifier
+scriptedEffect: IDENTIFIER EQUALS (simpleBlock | YES);                         
+effect: (EFFECT_NAME EQUALS (TAG | INT | FLOAT | SCOPE | YES | NO | IDENTIFIER | STRING)) | scriptedEffect | ifStatement | scope;      
+modifier: MODIFIER_NAME EQUALS (TAG | INT | FLOAT | SCOPE | YES | NO | IDENTIFIER | STRING);
+skill_scaled_modifier: SKILL_SACLED_MOD EQUALS LPAR triggerBlock modifierBlock chanceBlock  RPAR;
+
+//ai stuff
+factor: FACTOR EQUALS (INT | FLOAT);                                          
+chanceMod: MODIFIER EQUALS LPAR factor trigger* RPAR;
+
+//triggers
 trigger
     : orBlock 
     | andBlock 
     | notBlock
-    | (TRIGGER_NAME EQUALS value) 
+    | (TRIGGER_NAME EQUALS (TAG | INT | FLOAT | SCOPE | YES | NO | IDENTIFIER | STRING)) 
     | scriptedTrigger 
     | customTriggerTooltip
-    ;                                      // <trigger> | <boolean>
-// simpleTrigger: (TRIGGER_NAME EQUALS value) | scriptedTrigger | customTriggerTooltip;  //<trigger> | <scriptedTrigger>
+    | scope
+    ;                                      
+scriptedTrigger: IDENTIFIER EQUALS LPAR trigger* RPAR;      
 
-// -- Booleans
-booleanTrigger: orBlock | andBlock | notBlock;
+//scope
+scope: SCOPE EQUALS LPAR (effect | trigger | scope )* RPAR;
+
+
+//complex triggers
 orBlock: OR EQUALS LPAR trigger* RPAR;
 andBlock: AND EQUALS LPAR trigger* RPAR;
 notBlock: NOT EQUALS LPAR trigger* RPAR;
 
-//Tooltips
-tooltip: TOOLTIP EQUALS STRING;                                                 //tooltip = <string>
-customTooltip: CUSTOM_TOOLTIP EQUALS STRING;                                    //custom_tooltip = <string>
-customTriggerTooltip: CUSTOM_TRIGGER_TOOLTIP EQUALS LPAR tooltip* trigger* RPAR; //custom_trigger_tooltip = { <tooltip> <trigger> }
-desc: DESC EQUALS STRING;                                                       //desc = <string>
+//tooltips
+tooltip: TOOLTIP EQUALS STRING;
+customTooltip: CUSTOM_TOOLTIP EQUALS STRING;
+customTriggerTooltip: CUSTOM_TRIGGER_TOOLTIP EQUALS LPAR tooltip* trigger* RPAR;
+desc: DESC EQUALS STRING;
 
-// Trigger and Effect blocks
-triggerBlock: TRIGGER EQUALS LPAR trigger* RPAR;
-effectBlock: EFFECT EQUALS LPAR effect* RPAR;
+//advisors
+advisor: IDENTIFIER EQUALS LPAR monarch_power_advisor (modifier | skill_scaled_modifier)* chanceBlock aiWillDoBlock RPAR;
+monarch_power_advisor: MONARCH_POWER EQUALS MPOWER;
 
-// Missions
+// Missions by @Sol_InvictusXLII
 // Note: this is a parser
 // With missions, that can have a bunch of optional terms without a specific order, capturing duplicate terms is should be done while traversing the tree
 // Ex, if the mission has 2 <trigger> blocks, it is grammatically valid but syntactically invalid :)
@@ -71,6 +90,3 @@ completedBy_mission: COMPLETED_BY EQUALS STRING;
 requiredMissions_mission: REQUIRED_MISSIONS EQUALS LPAR IDENTIFIER* RPAR;
 provincesToHighlight_mission: PROVINCES_TO_HIGHLIGHT EQUALS LPAR trigger* RPAR;
 aiWeight_mission: AI_WEIGHT EQUALS LPAR factor RPAR;
-
-//file: advisor* EOF ;
-//advisor: IDENTIFIER EQUALS block ;

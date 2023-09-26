@@ -38,27 +38,26 @@ LIMIT: 'limit';
 
 //Other Keywords
 SKILL_SACLED_MOD: 'skill_scaled_modifier';
-MODIFIER: 'modifier';
-CHANCE: 'chance';
-AI_WILL_DO: 'ai_will_do';
-FACTOR: 'factor';
+POTENTIAL: 'potential';
+TRIGGER: 'trigger';
+EFFECT: 'effect';
+
+//Tooltips
 TOOLTIP: 'tooltip';
 CUSTOM_TOOLTIP: 'custom_tooltip';
 DESC: 'desc';
 CUSTOM_TRIGGER_TOOLTIP: 'custom_trigger_tooltip';
-POTENTIAL: 'potential';
-AI_WEIGHT: 'ai_weight';
-TRIGGER: 'trigger';
-EFFECT: 'effect';
 
 //Trigger
 TRIGGER_NAME
     : 'is_core'
+    | 'has_government_mechanic'
+    | 'culture_group'
     ;
 
 //Modifier
 MODIFIER_NAME
-    : 'monarch_power' 
+    : 'prestige' 
     ;
 
 //Effects
@@ -66,8 +65,24 @@ EFFECT_NAME
     : 'add_core'
     ;
 
+//Scopes
+SCOPE
+    : 'ROOT'
+    | 'root'
+    | 'prev'
+    | 'PREV'
+    ;
+
+//Advisor specific keywords
+MONARCH_POWER: 'monarch_power';
+
 //Trigger Keywords
 AI: 'ai';
+MODIFIER: 'modifier';
+CHANCE: 'chance';
+AI_WILL_DO: 'ai_will_do';
+FACTOR: 'factor';
+AI_WEIGHT: 'ai_weight';
 
 //Missions Specific Keywords
 SLOT: 'slot';
