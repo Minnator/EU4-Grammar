@@ -11,7 +11,7 @@ NOT: 'NOT' | 'not';
 MPOWER: 'ADM' | 'MIL' | 'DIP';
 
 //not sure if not only '[A-Z0-9]{3}' would be enough for a TAG to be recognized
-TAG: [A-Z0-9]{3}; 
+TAG: [A-Z0-9][A-Z0-9][A-Z0-9]; 
 
 BOOL: YES | NO;
 INT: [0-9]+;
@@ -47,6 +47,10 @@ TOOLTIP: 'tooltip';
 CUSTOM_TOOLTIP: 'custom_tooltip';
 DESC: 'desc';
 CUSTOM_TRIGGER_TOOLTIP: 'custom_trigger_tooltip';
+POTENTIAL: 'potential';
+AI_WEIGHT: 'ai_weight';
+TRIGGER: 'trigger';
+EFFECT: 'effect';
 
 //Trigger
 TRIGGER_NAME
@@ -62,6 +66,20 @@ MODIFIER_NAME
 EFFECT_NAME
     : 'add_core'
     ;
+
+//Trigger Keywords
+AI: 'ai';
+
+//Missions Specific Keywords
+SLOT: 'slot';
+GENERIC: 'generic';
+HAS_COUNTRY_SHIELD: 'has_country_shield';
+POTENTIAL_ON_LOAD: 'potential_on_load';
+ICON: 'icon';
+POSITION: 'position';
+COMPLETED_BY: 'completed_by';
+REQUIRED_MISSIONS: 'required_missions';
+PROVINCES_TO_HIGHLIGHT: 'provinces_to_highlight';
 
 //Identifier
 IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*;
