@@ -11,16 +11,13 @@ NOT: 'NOT' | 'not';
 MPOWER: 'ADM' | 'MIL' | 'DIP';
 
 //not sure if not only '[A-Z0-9]{3}' would be enough for a TAG to be recognized
-TAG: (EQUALS | WHITESPACE) [A-Z0-9]{3} (WHITESPACE | RPAR | EQUALS); 
+TAG: [A-Z0-9]{3}; 
 
 BOOL: YES | NO;
 INT: [0-9]+;
 STRING: '"'(~('"')|(' '|'\\n'|'\\t'|'\\"'|'\\'))*'"'; //Still need to to the $Y$! amd [Root.GetName] stuff
 FLOAT: [0-9]+ '.' [0-9]+;
-VALUE: BOOL | TAG | INT | STRING | FLOAT ;
 
-//Identifier
-IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*;
 
 
 //Symbols
@@ -65,3 +62,6 @@ MODIFIER_NAME
 EFFECT_NAME
     : 'add_core'
     ;
+
+//Identifier
+IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*;

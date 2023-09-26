@@ -1,0 +1,6 @@
+if = {
+	limit = {
+		is_core = TAG
+	}
+	add_core = TAG
+}
