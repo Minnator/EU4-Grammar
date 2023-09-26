@@ -31,7 +31,7 @@ ifStatement: IF EQUALS LPAR limit effect* RPAR (eLSE | elseIf)*;
 scriptedEffect: IDENTIFIER EQUALS (simpleBlock | YES);                         
 effect: (EFFECT_NAME EQUALS (TAG | INT | FLOAT | SCOPE | YES | NO | IDENTIFIER | STRING)) | scriptedEffect | ifStatement | scope;      
 modifier: MODIFIER_NAME EQUALS (TAG | INT | FLOAT | SCOPE | YES | NO | IDENTIFIER | STRING);
-skill_scaled_modifier: SKILL_SACLED_MOD EQUALS LPAR triggerBlock modifierBlock chanceBlock  RPAR;
+skill_scaled_modifier: SKILL_SACLED_MOD EQUALS LPAR triggerBlock modifierBlock RPAR;
 
 //ai stuff
 factor: FACTOR EQUALS (INT | FLOAT);                                          
