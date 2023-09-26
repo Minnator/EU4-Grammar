@@ -23,8 +23,15 @@ chanceMod: MODIFIER EQUALS LPAR factor trigger* RPAR;                           
 chance: CHANCE EQUALS LPAR factor chanceMod* RPAR;                           //chance = { <factor> <ChanceMod> }
 
 // Triggers
-trigger: simpleTrigger | booleanTrigger;
-simpleTrigger: (TRIGGER_NAME EQUALS value) | scriptedTrigger | customTriggerTooltip;  //<trigger> | <scriptedTrigger>
+trigger
+    : orBlock 
+    | andBlock 
+    | notBlock
+    | (TRIGGER_NAME EQUALS value) 
+    | scriptedTrigger 
+    | customTriggerTooltip
+    ;                                      // <trigger> | <boolean>
+// simpleTrigger: (TRIGGER_NAME EQUALS value) | scriptedTrigger | customTriggerTooltip;  //<trigger> | <scriptedTrigger>
 
 // -- Booleans
 booleanTrigger: orBlock | andBlock | notBlock;
@@ -35,7 +42,7 @@ notBlock: NOT EQUALS LPAR trigger* RPAR;
 //Tooltips
 tooltip: TOOLTIP EQUALS STRING;                                                 //tooltip = <string>
 customTooltip: CUSTOM_TOOLTIP EQUALS STRING;                                    //custom_tooltip = <string>
-customTriggerTooltip: CUSTOM_TRIGGER_TOOLTIP EQUALS LPAR tooltip trigger* RPAR; //custom_trigger_tooltip = { <tooltip> <trigger> }
+customTriggerTooltip: CUSTOM_TRIGGER_TOOLTIP EQUALS LPAR tooltip* trigger* RPAR; //custom_trigger_tooltip = { <tooltip> <trigger> }
 desc: DESC EQUALS STRING;                                                       //desc = <string>
 
 // Trigger and Effect blocks
