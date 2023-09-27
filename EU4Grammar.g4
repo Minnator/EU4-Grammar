@@ -13,11 +13,10 @@ MPOWER: 'ADM' | 'MIL' | 'DIP';
 //not sure if not only '[A-Z0-9]{3}' would be enough for a TAG to be recognized
 TAG: [A-Z0-9][A-Z0-9][A-Z0-9]; 
 
-INT: ('-' | '+')?[0-9]+;
+INT: ('-' | '+')? [0-9]+;
+STRING_TOOLTIP: [a-zA-Z0-9_]+;
 STRING: '"'(~('"')|(' '|'\\n'|'\\t'|'\\"'|'\\'))*'"'; //Still need to to the $Y$! amd [Root.GetName] stuff
 FLOAT: ('-' | '+')?[0-9]+ '.' [0-9]+;
-
-
 
 //Symbols
 LPAR: '{';
@@ -41,6 +40,7 @@ SKILL_SACLED_MOD: 'skill_scaled_modifier';
 POTENTIAL: 'potential';
 TRIGGER: 'trigger';
 EFFECT: 'effect';
+ALLOW: 'allow';
 
 //Tooltips
 TOOLTIP: 'tooltip';
@@ -90,6 +90,14 @@ SCOPE
 //Advisor specific keywords
 MONARCH_POWER: 'monarch_power';
 
+//Age specific keywords
+START: 'start';
+CAN_START: 'can_start';
+OBJECTIVES: 'objectives';
+ABILITIES: 'abilities';
+RELIGIOUS_CONFLICTS: 'religious_conflicts';
+PAPACY: 'papacy';
+
 //Trigger Keywords
 AI: 'ai';
 MODIFIER: 'modifier';
@@ -110,4 +118,4 @@ REQUIRED_MISSIONS: 'required_missions';
 PROVINCES_TO_HIGHLIGHT: 'provinces_to_highlight';
 
 //Identifier
-IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*;
+IDENTIFIER: [a-zA-Z0-9_]+;

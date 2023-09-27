@@ -7,65 +7,75 @@ options
 // Uncategorized Mess :trollface:
 //blocks
 file
-    : advisor
+    : advisor*
+    | age*
     ;
-block: LPAR (statement | ifStatement)* RPAR ;    
-simpleBlock: LPAR statement* RPAR;      
+block: LPAR (statement | if_statement)* RPAR ;
 statement: (effect | block) ;
-triggerBlock: TRIGGER EQUALS LPAR trigger* RPAR;
-effectBlock: EFFECT EQUALS LPAR effect* RPAR;
-modifierBlock: MODIFIER EQUALS LPAR modifier* RPAR;
-chanceBlock: CHANCE EQUALS LPAR factor chanceMod* RPAR;
-aiWillDoBlock: AI_WILL_DO EQUALS LPAR factor chanceMod* RPAR;
+trigger_block: TRIGGER EQUALS LPAR trigger* RPAR;
+effect_block: EFFECT EQUALS LPAR effect* RPAR;
+modifier_block: MODIFIER EQUALS LPAR modifier* RPAR;
+chance_block: CHANCE EQUALS LPAR factor chance_modifier* RPAR;
+ai_will_do_block: AI_WILL_DO EQUALS LPAR factor chance_modifier* RPAR;
+allow: ALLOW EQUALS LPAR trigger* RPAR;
 
 //base tokens
-value: TAG | INT | FLOAT | SCOPE | YES | NO | IDENTIFIER | STRING;
+value: YES | NO | TAG | SCOPE | FLOAT | STRING | IDENTIFIER | INT;
 
 //if & else & conditions
-limit: LIMIT EQUALS LPAR trigger* RPAR;                                        
-eLSE: ELSE EQUALS LPAR effect* RPAR;                                           
-elseIf: ELSE_IF LPAR EQUALS limit effect* RPAR;                               
-ifStatement: IF EQUALS LPAR limit effect* RPAR (eLSE | elseIf)*; 
+limit: LIMIT EQUALS LPAR trigger* RPAR;
+eLSE: ELSE EQUALS LPAR effect* RPAR;
+else_if: ELSE_IF LPAR EQUALS limit effect* RPAR;
+if_statement: IF EQUALS LPAR limit effect* RPAR (eLSE | else_if)*;
 
 //effects & modifier
-scriptedEffect: IDENTIFIER EQUALS (simpleBlock | YES);                         
-effect: (EFFECT_NAME EQUALS (TAG | INT | FLOAT | SCOPE | YES | NO | IDENTIFIER | STRING)) | scriptedEffect | ifStatement | scope;      
-modifier: MODIFIER_NAME EQUALS (TAG | INT | FLOAT | SCOPE | YES | NO | IDENTIFIER | STRING);
-skill_scaled_modifier: SKILL_SACLED_MOD EQUALS LPAR triggerBlock modifierBlock RPAR;
+scriptedEffect: IDENTIFIER EQUALS ((LPAR statement* RPAR) | YES);
+effect: (EFFECT_NAME EQUALS (YES | NO | TAG | SCOPE | FLOAT | STRING | IDENTIFIER | INT)) | scriptedEffect | if_statement | scope;      
+modifier: (MODIFIER_NAME | IDENTIFIER) EQUALS (YES | NO | TAG | SCOPE | FLOAT | STRING | IDENTIFIER | INT);
+skill_scaled_modifier: SKILL_SACLED_MOD EQUALS LPAR trigger_block modifier_block RPAR;
 
 //ai stuff
 factor: FACTOR EQUALS (INT | FLOAT);                                          
-chanceMod: MODIFIER EQUALS LPAR factor trigger* RPAR;
+chance_modifier: MODIFIER EQUALS LPAR factor trigger* RPAR;
 
 //triggers
 trigger
-    : orBlock 
-    | andBlock 
-    | notBlock
-    | (TRIGGER_NAME EQUALS (TAG | INT | FLOAT | SCOPE | YES | NO | IDENTIFIER | STRING)) 
-    | scriptedTrigger 
-    | customTriggerTooltip
+    : or_block 
+    | and_block 
+    | not_block
+    | ((TRIGGER_NAME | IDENTIFIER) EQUALS (YES | NO | TAG | SCOPE | FLOAT | STRING | IDENTIFIER | INT)) 
+    | scripted_trigger 
+    | custom_trigger_tooltip
     | scope
     ;                                      
-scriptedTrigger: IDENTIFIER EQUALS LPAR trigger* RPAR;      
+scripted_trigger: IDENTIFIER EQUALS LPAR trigger* RPAR;      
 
 //scope
 scope: SCOPE EQUALS LPAR (effect | trigger | scope )* RPAR;
 
 
 //complex triggers
-orBlock: OR EQUALS LPAR trigger* RPAR;
-andBlock: AND EQUALS LPAR trigger* RPAR;
-notBlock: NOT EQUALS LPAR trigger* RPAR;
+or_block: OR EQUALS LPAR trigger* RPAR;
+and_block: AND EQUALS LPAR trigger* RPAR;
+not_block: NOT EQUALS LPAR trigger* RPAR;
 
 //tooltips
-tooltip: TOOLTIP EQUALS STRING;
-customTooltip: CUSTOM_TOOLTIP EQUALS STRING;
-customTriggerTooltip: CUSTOM_TRIGGER_TOOLTIP EQUALS LPAR tooltip* trigger* RPAR;
-desc: DESC EQUALS STRING;
+tooltip: TOOLTIP EQUALS STRING_TOOLTIP;
+custom_tooltip: CUSTOM_TOOLTIP EQUALS STRING_TOOLTIP;
+custom_trigger_tooltip: CUSTOM_TRIGGER_TOOLTIP EQUALS LPAR tooltip* trigger* RPAR;
+desc: DESC EQUALS STRING_TOOLTIP;
+
+//ages
+start: START EQUALS INT;
+can_start_block: CAN_START EQUALS LPAR trigger* RPAR;
+objective: IDENTIFIER EQUALS LPAR allow custom_trigger_tooltip* RPAR; 
+objectives_block: OBJECTIVES EQUALS LPAR objective* RPAR;
+ability: IDENTIFIER EQUALS LPAR effect_block ai_will_do_block RPAR;
+ability_block: ABILITIES LPAR ability* RPAR;
+age: IDENTIFIER EQUALS LPAR start can_start_block ((RELIGIOUS_CONFLICTS EQUALS (YES | NO))|(PAPACY EQUALS FLOAT))* objectives_block ability_block;
 
 //advisors
-advisor: IDENTIFIER EQUALS LPAR monarch_power_advisor (modifier | skill_scaled_modifier)* chanceBlock aiWillDoBlock RPAR;
+advisor: IDENTIFIER EQUALS LPAR monarch_power_advisor (modifier | skill_scaled_modifier)* chance_block ai_will_do_block RPAR;
 monarch_power_advisor: MONARCH_POWER EQUALS MPOWER;
 
 // Missions by @Sol_InvictusXLII
@@ -83,7 +93,7 @@ potentialOnLoad_missionSeries: POTENTIAL_ON_LOAD EQUALS LPAR trigger* RPAR;
 potential_missionSeries: POTENTIAL EQUALS LPAR trigger* RPAR;
 
 // -- Mission Block
-missionBlock: IDENTIFIER EQUALS LPAR (icon_mission | position_mission | completedBy_mission | requiredMissions_mission | provincesToHighlight_mission | triggerBlock | effectBlock | aiWeight_mission)* RPAR;
+missionBlock: IDENTIFIER EQUALS LPAR (icon_mission | position_mission | completedBy_mission | requiredMissions_mission | provincesToHighlight_mission | trigger_block | effect_block | aiWeight_mission)* RPAR;
 icon_mission: ICON EQUALS IDENTIFIER;
 position_mission: POSITION EQUALS INT;
 completedBy_mission: COMPLETED_BY EQUALS STRING;
