@@ -25,8 +25,8 @@ DAYS: 'days';
 //Symbols
 LPAR: '{';
 RPAR: '}';
-LE: '='[ \\s\n]*'{';
-EQUALS: '=';
+//LE: '='[ \\s\n]*'{';
+//EQUALS: '=';
 PLUS: '+';
 MINUS: '-';
 COMMA: ',';
@@ -35,7 +35,6 @@ DOT: '.';
 //Comment and whitespace
 WHITESPACE: [ \t\r\n]+ -> skip;
 SINGLE_LINE_COMMENT: '#' ~[\r\n]* -> skip;
-
 
 //Condition
 IF: 'if';
@@ -55,7 +54,7 @@ AMOUNT: 'amount';
 DATE_KEY: 'date';
 NAME: 'name';
 NAMES: 'names';
-COST: 'cost';
+//COST: 'cost';
 TIME: 'time';
 IS_TIRGGERED_ONLY: 'is_triggered_only';
 PREREQUISITES: 'prerequisites';
@@ -71,8 +70,8 @@ SET_VARIABLE: 'set_variable';
 DIVIDE_VARIABLE: 'divide_variable';
 MULTIPLY_VARIABLE: 'multiply_variable';
 EXPORT_TO_VARIABLE: 'export_to_variable';
-WHICH: 'which';
-VALUE: 'value';
+//WHICH: 'which';
+//VALUE: 'value';
 WHO: 'who';
 
 //Block keywords
@@ -228,11 +227,11 @@ SPRITE: 'sprite';
 MONARCH_POWER: 'monarch_power';
 
 //trade center specific
-LEVEL: 'level';
-DEVELOPMENT: 'development';
+//LEVEL: 'level';
+//DEVELOPMENT: 'development';
 INLAND: 'inland';
 COASTAL: 'coastal';
-TYPE: 'type';
+//TYPE: 'type';
 PROVINCE_MODIFIER: 'province_modifiers';
 STATE_MODIFIER: 'state_modifiers';
 GLOBAL_MODIFIER: 'global_modifiers';
@@ -289,3 +288,5 @@ PROVINCES_TO_HIGHLIGHT: 'provinces_to_highlight';
 //Identifier
 IDENTIFIER: ([a-zA-Z0-9_]+ '-' [a-zA-Z0-9_]+) | [a-zA-Z0-9_]+;
 STRING_TOOLTIP: [a-zA-Z0-9_$]+;
+
+EQUALS_SKIP: '=' ~[ ]* -> skip;
