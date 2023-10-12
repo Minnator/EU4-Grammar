@@ -1,5 +1,5 @@
 lexer grammar EU4Grammar;
-
+@charset { "windows-1252"; }
 //Unique strings
 AND: 'AND';
 OR: 'OR';
@@ -158,6 +158,17 @@ AI_WEIGHT: 'ai_weight';
 AI_PICK_ANCESTOR: 'ai_pick_ancestor';
 AI_PEACE_DESIRE: 'ai_peace_desire'; 
 
+//Cultures
+MALE_NAMES: 'male_names';
+FEMALE_NAMES: 'female_names';
+DYNASTY_NAMES: 'dynasty_names';
+PRIMARY: 'primary';
+
+//Country Colors
+COLOR1: 'color1';
+COLOR2: 'color2';
+COLOR3: 'color3';
+
 //Common//countries
 GRAPHICAL_CULTURE: 'graphical_culture';
 REVOLUTIONARY_COLORS: 'revolutionary_colors';
@@ -226,6 +237,7 @@ DEFAULT: 'default';
 CENTER: 'center';
 EASY_COUNTRY: 'easy_country';
 COUNTRY: 'country';
+PROVINCE: 'province';
 
 //Age specific keywords
 START: 'start';
@@ -247,5 +259,5 @@ REQUIRED_MISSIONS: 'required_missions';
 PROVINCES_TO_HIGHLIGHT: 'provinces_to_highlight';
 
 //Identifier
-IDENTIFIER: [a-zA-Z0-9_]+;
+IDENTIFIER: [a-zA-Z0-9_]+ '-' [a-zA-Z0-9_]+;
 STRING_TOOLTIP: [a-zA-Z0-9_$]+;

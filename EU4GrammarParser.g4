@@ -1,4 +1,5 @@
 parser grammar EU4GrammarParser;
+
 options 
     { 
         tokenVocab = EU4Grammar; 
@@ -16,6 +17,9 @@ file
     | church_aspect*
     | colonial_region*
     | common_country*
+    | country_color*
+    | country_tags*
+    | culture_group*
     ;
 
 //blocks
@@ -131,6 +135,18 @@ trigger_sub_block
     | TAG
     ) LE trigger* RPAR
     ;   
+
+//Cultures
+culture_modifier_block: (COUNTRY | PROVINCE) LE modifier* RPAR;
+culture_names: (MALE_NAMES | FEMALE_NAMES | DYNASTY_NAMES) LE (IDENTIFIER | STRING)* RPAR;
+culture_group: IDENTIFIER LE ((GRAPHICAL_CULTURE EQUALS IDENTIFIER) | culture_modifier_block | culture | culture_names)+ RPAR;
+culture: IDENTIFIER LE ((PRIMARY EQUALS TAG) | culture_modifier_block | culture_names)* RPAR;
+
+//Country Tag
+country_tags: TAG EQUALS STRING;
+
+//Country Colors
+country_color: TAG LE ((COLOR1 | COLOR2 | COLOR3) LE INT+ INT+ INT+ RPAR)+ RPAR;
 
 //Common//countries
 common_countires_block: (HISTORICAL_IDEA_GROUPS | HISTORICAL_UNITS | LEADER_NAMES | SHIP_NAMES | ARMY_NAMES | FLEET_NAMES) LE (IDENTIFIER | STRING)* RPAR;
