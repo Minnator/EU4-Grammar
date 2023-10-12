@@ -20,6 +20,11 @@ file
     | country_color*
     | country_tags*
     | culture_group*
+    | custom_country_color*
+    | custom_idea_category*
+    | decree*
+    | defender_of_faith*
+    | diplomatic_action*
     ;
 
 //blocks
@@ -28,6 +33,7 @@ statement: (effect | block) ;
 trigger_block: TRIGGER LE trigger* RPAR;
 potential_block: POTENTIAL LE trigger* RPAR;
 effect_block: EFFECT LE effect* RPAR;
+removed_effect_block: REMOVED_EFFECT LE effect* RPAR;
 modifier_block: MODIFIER LE modifier* RPAR;
 chance_block: CHANCE LE factor* chance_modifier* RPAR;
 ai_will_do_block: AI_WILL_DO LE factor chance_modifier* RPAR;
@@ -35,6 +41,9 @@ allow: ALLOW LE trigger* RPAR;
 name_block: (NAME | NAMES) LE ((NAME EQUALS STRING) | trigger_block)+ RPAR;
 color_block: COLOR LE INT+ INT+ INT+ RPAR;
 provinces_block: PROVINCES LE (INT+)* RPAR;
+file_block: FILE EQUALS STRING;
+size_block: SIZE LE X EQUALS INT Y EQUALS INT RPAR;
+allow_block: ALLOW LE trigger* RPAR;
 
 //ai stuff
 factor: FACTOR EQUALS (INT | FLOAT);                                          
@@ -60,10 +69,10 @@ scope: (SCOPE | TAG) LE (effect | trigger | scope | limit)* RPAR;
 
 //effects & modifier
 scriptedEffect: IDENTIFIER EQUALS ((LPAR statement* RPAR) | YES);
-modifier: (MODIFIER_NAME | IDENTIFIER) EQUALS (YES | NO | TAG | SCOPE | FLOAT | STRING | IDENTIFIER | INT);
+modifier: IDENTIFIER EQUALS (YES | NO | TAG | SCOPE | FLOAT | STRING | IDENTIFIER | INT);
 skill_scaled_modifier: SKILL_SACLED_MOD LE trigger_block modifier_block RPAR;
 effect
-    : ((EFFECT_NAME | IDENTIFIER) EQUALS (YES | NO | TAG | SCOPE | FLOAT | STRING | IDENTIFIER | INT)) 
+    : (IDENTIFIER EQUALS (YES | NO | TAG | SCOPE | FLOAT | STRING | IDENTIFIER | INT)) 
     | scriptedEffect 
     | if_statement 
     | scope
@@ -81,6 +90,7 @@ effect
     | remove_opinion
     | add_opinion
     | reverse_add_opinion
+    | country_event
     ;      
 
 //special effects:
@@ -96,11 +106,13 @@ change_variable: CHANGE_VARIABLE LE WHICH EQUALS IDENTIFIER ((WHICH EQUALS IDENT
 set_variable: SET_VARIABLE LE WHICH EQUALS IDENTIFIER ((WHICH EQUALS IDENTIFIER) | (VALUE EQUALS (FLOAT | INT))) RPAR;
 divide_variable: DIVIDE_VARIABLE LE WHICH EQUALS IDENTIFIER ((WHICH EQUALS IDENTIFIER) | (VALUE EQUALS (FLOAT | INT))) RPAR;
 export_to_variable: EXPORT_TO_VARIABLE LE WHICH EQUALS IDENTIFIER VALUE EQUALS IDENTIFIER (WHO EQUALS (TAG | SCOPE))? RPAR;
+country_event: COUNTRY_EVENT LE ID EQUALS IDENTIFIER DOT (IDENTIFIER | INT) (DAYS EQUALS INT)? RPAR;
 
 //triggers
 mana_trigger: MPOWER EQUALS INT;
+religion_trigger: RELIGION EQUALS (IDENTIFIER | SCOPE);
 trigger
-    : ((TRIGGER_NAME | IDENTIFIER) EQUALS (YES | NO | TAG | SCOPE | FLOAT | STRING | IDENTIFIER | INT)) 
+    : (IDENTIFIER EQUALS (YES | NO | TAG | SCOPE | FLOAT | STRING | IDENTIFIER | INT)) 
     | scripted_trigger 
     | custom_trigger_tooltip
     | calc_true_if
@@ -112,10 +124,17 @@ trigger
     | if_statement
     | check_variable
     | has_opinion_modifier
+    | religion_trigger
+    | num_of_owned_provinces_with
+    | has_global_modifier_value
+    | is_in_war
+    | has_opinion
+    | region_trigger
     ;     
 
 //complex triggers
-has_opinion_modifier: HAS_OPINION_MODIFIER LE WHO EQUALS (SCOPE | TAG) MODIFIER EQUALS IDENTIFIER RPAR;
+num_of_owned_provinces_with: NUM_OF_OWNED_PROVINCES_WITH LE ((VALUE EQUALS INT) | trigger)+ RPAR;
+has_opinion_modifier: HAS_OPINION_MODIFIER LE ((WHO EQUALS (TAG | SCOPE)) | (VALUE EQUALS INT) | (MODIFIER EQUALS IDENTIFIER))* RPAR;
 calc_true_if: CALC_TRUE_IF LE (amount | trigger)* RPAR;        
 check_variable: CHECK_VARIABLE LE WHICH EQUALS IDENTIFIER ((WHICH EQUALS IDENTIFIER) | (VALUE EQUALS (FLOAT | INT))) RPAR;
 trade_share: TRADE_SHARE LE COUNTRY EQUALS (TAG | SCOPE) SHARE EQUALS INT RPAR;  
@@ -126,6 +145,11 @@ prerequisites_self: PREREQUISITES_SELF LE trigger* RPAR;
 ai_trigger: AI EQUALS (YES | NO);
 is_triggered_only: IS_TIRGGERED_ONLY EQUALS (YES | NO);
 region_trigger: REGION EQUALS IDENTIFIER;
+has_global_modifier_value: Has_GLOBAL_MODIFIER_VALUE LE WHICH EQUALS IDENTIFIER VALUE EQUALS INT RPAR;
+is_in_war: IS_IN_WAR LE is_in_war_options* RPAR;
+is_in_war_options: (ATTACKER_LEADER EQUALS (SCOPE | IDENTIFIER)) | (DEFENDER_LEADER EQUALS (SCOPE | IDENTIFIER)) | (CASUS_BELLI EQUALS IDENTIFIER) | (DEFENDERS EQUALS TAG) | (ATTACKERS EQUALS TAG) | (PARTICIPANTS EQUALS TAG) | (WAR_SCORE EQUALS INT) | (START_DATE EQUALS DATE) | (DURATION EQUALS INT) | (WAR_GOAL_PROVINCE EQUALS INT);
+has_opinion: HAS_OPINION LE ((WHO EQUALS (TAG | SCOPE)) | (VALUE EQUALS INT) | (MODIFIER EQUALS IDENTIFIER))* RPAR;
+
 trigger_sub_block
     : ( 
     OR
@@ -135,6 +159,30 @@ trigger_sub_block
     | TAG
     ) LE trigger* RPAR
     ;   
+
+//Diplomatic Action (Overwriting)
+pre_effect: PRE_EFFECT LE effect* RPAR;
+conditional_block: CONDITIONAL LE (potential_block | allow_block | tooltip | pre_effect)* RPAR;
+diplomatic_action: IDENTIFIER LE (conditional_block | effect_block | pre_effect)* RPAR;
+
+//Defender of faith
+dof_defines: (LEVEL EQUALS INT) | (RANGE_FROM EQUALS INT) | (RANGE_TO EQUALS INT);
+defender_of_faith: IDENTIFIER LE dof_defines+ (modifier_block | ai_will_do_block | (SAME_FAITH_MODIFIER LE modifier* RPAR))+ RPAR;
+
+//Decrees
+decree_blocks: (potential_block | trigger_block | modifier_block | effect_block | removed_effect_block | ai_will_do_block);
+decree: IDENTIFIER LE ((COST EQUALS INT) | (DURATION EQUALS INT))+ decree_blocks+ RPAR;
+
+//Custom Ideas
+custom_idea_category: IDENTIFIER LE CATEGORY EQUALS MPOWER custom_idea+ RPAR;
+custom_idea_level: LEVEL_COST EQUALS INT;
+enabled_block: ENABLED LE trigger* RPAR;
+custom_idea: IDENTIFIER LE (modifier | enabled_block | custom_idea_level | (DEFAULT EQUALS INT) | chance_block | (MAX_LEVEL EQUALS INT))* RPAR; 
+
+//Custom country colors for the custom nation designer
+flag_color: FLAG_COLOR LE INT+ INT+ INT+ RPAR;
+texture_block: TEXTURE LE file_block size_block NOOFFRAMES EQUALS INT COLOR EQUALS INT RPAR;
+custom_country_color: NUM_SYMBOLS EQUALS INT color_block* flag_color* TEXTURES LE texture_block* RPAR;
 
 //Cultures
 culture_modifier_block: (COUNTRY | PROVINCE) LE modifier* RPAR;

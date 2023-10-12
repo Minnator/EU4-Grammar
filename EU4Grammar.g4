@@ -20,6 +20,7 @@ FLOAT: ('-' | '+')?[0-9]+ '.' [0-9]+;
 // Date stuff
 DATE: [1-9]+'.'[0-9]+'.'[0-9]+;
 MONTHS: 'months';
+DAYS: 'days';
 
 //Symbols
 LPAR: '{';
@@ -28,10 +29,13 @@ LE: '='[ \\s\n]*'{';
 EQUALS: '=';
 PLUS: '+';
 MINUS: '-';
+COMMA: ',';
+DOT: '.';
 
 //Comment and whitespace
 WHITESPACE: [ \t\r\n]+ -> skip;
 SINGLE_LINE_COMMENT: '#' ~[\r\n]* -> skip;
+
 
 //Condition
 IF: 'if';
@@ -92,6 +96,8 @@ REMOVE_OPINION: 'remove_opinion';
 REVERSE_REMOVE_OPINION: 'reverse_remove_opinion';
 ADD_OPINION: 'add_opinion';
 REVERSE_ADD_OPINION: 'reverse_add_opinion';
+REMOVED_EFFECT: 'removed_effect';
+SAME_FAITH_MODIFIER: 'same_faith_modifier';
 
 //Tooltips
 TOOLTIP: 'tooltip';
@@ -99,30 +105,15 @@ CUSTOM_TOOLTIP: 'custom_tooltip';
 DESC: 'desc';
 CUSTOM_TRIGGER_TOOLTIP: 'custom_trigger_tooltip';
 
-//Trigger
-TRIGGER_NAME
-    : 'is_core'
-    | 'has_government_mechanic'
-    | 'culture_group'
-    | 'has_government_attribute'
-    | 'has_country_flag'
-    | 'is_emperor_of_china'
-    | 'has_country_modifier'
-    | 'controlled_by'
-    | 'development_discounting_tribal'
-    ;
+//Special trigger
+NUM_OF_OWNED_PROVINCES_WITH: 'num_of_owned_provinces_with';
+Has_GLOBAL_MODIFIER_VALUE: 'has_global_modifier_value';
+IS_IN_WAR: 'is_in_war';
+HAS_OPINION: 'has_opinion';
 
-//Modifier
-MODIFIER_NAME
-    : 'tolerance_heretic' 
-    ;
-
-//Special effect names
-
-//Effects
-EFFECT_NAME
-    : 'add_core'
-    ;
+//Special effects
+COUNTRY_EVENT: 'country_event';
+ID: 'id';
 
 //Scopes
 SCOPE
@@ -141,6 +132,7 @@ SCOPE
     | 'every_country'
     | 'every_owned_province'
     | 'every_known_country'
+    | 'any_war_enemy_country'
     ;
 
 //Special modifiers:
@@ -157,6 +149,42 @@ FACTOR: 'factor';
 AI_WEIGHT: 'ai_weight';
 AI_PICK_ANCESTOR: 'ai_pick_ancestor';
 AI_PEACE_DESIRE: 'ai_peace_desire'; 
+
+//is_in_war
+ATTACKER_LEADER: 'attacker_leader';
+DEFENDER_LEADER: 'defender_leader';
+CASUS_BELLI: 'casus_belli';
+DEFENDERS: 'defenders';
+ATTACKERS: 'attackers';
+PARTICIPANTS: 'participants';
+WAR_SCORE: 'war_score';
+START_DATE: 'start_date';
+WAR_GOAL_PROVINCE: 'war_goal_province';
+
+//Diplomatic Interactions
+CONDITIONAL: 'condition';
+PRE_EFFECT: 'pre_effect';
+
+//Defender of Faith
+RANGE_TO: 'range_to';
+RANGE_FROM: 'range_from';
+
+//Custom Ideas
+CATEGORY: 'category';
+LEVEL_COST: 'level_cost_' [0-9]+;
+ENABLED: 'enabled';
+MAX_LEVEL: 'max_level';
+
+//Custom Country Color
+NUM_SYMBOLS: 'num_symbols';
+FLAG_COLOR: 'flag_color';
+TEXTURES: 'textures';
+TEXTURE: 'texture';
+FILE: 'file';
+SIZE: 'size';
+NOOFFRAMES: 'noOfFrames';
+X: 'x';
+Y: 'y';
 
 //Cultures
 MALE_NAMES: 'male_names';
@@ -259,5 +287,5 @@ REQUIRED_MISSIONS: 'required_missions';
 PROVINCES_TO_HIGHLIGHT: 'provinces_to_highlight';
 
 //Identifier
-IDENTIFIER: [a-zA-Z0-9_]+ '-' [a-zA-Z0-9_]+;
+IDENTIFIER: ([a-zA-Z0-9_]+ '-' [a-zA-Z0-9_]+) | [a-zA-Z0-9_]+;
 STRING_TOOLTIP: [a-zA-Z0-9_$]+;
