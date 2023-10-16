@@ -407,6 +407,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_file; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterFile(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitFile(this);
+		}
 	}
 
 	public final FileContext file() throws RecognitionException {
@@ -811,6 +819,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterBlock(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitBlock(this);
+		}
 	}
 
 	public final BlockContext block() throws RecognitionException {
@@ -875,6 +891,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_statement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitStatement(this);
+		}
 	}
 
 	public final StatementContext statement() throws RecognitionException {
@@ -948,6 +972,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_trigger_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterTrigger_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitTrigger_block(this);
+		}
 	}
 
 	public final Trigger_blockContext trigger_block() throws RecognitionException {
@@ -1005,6 +1037,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_potential_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterPotential_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitPotential_block(this);
+		}
 	}
 
 	public final Potential_blockContext potential_block() throws RecognitionException {
@@ -1062,6 +1102,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_effect_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterEffect_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitEffect_block(this);
+		}
 	}
 
 	public final Effect_blockContext effect_block() throws RecognitionException {
@@ -1119,6 +1167,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_removed_effect_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterRemoved_effect_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitRemoved_effect_block(this);
+		}
 	}
 
 	public final Removed_effect_blockContext removed_effect_block() throws RecognitionException {
@@ -1176,6 +1232,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_modifier_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterModifier_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitModifier_block(this);
+		}
 	}
 
 	public final Modifier_blockContext modifier_block() throws RecognitionException {
@@ -1239,6 +1303,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_chance_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterChance_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitChance_block(this);
+		}
 	}
 
 	public final Chance_blockContext chance_block() throws RecognitionException {
@@ -1313,6 +1385,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_ai_will_do_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterAi_will_do_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitAi_will_do_block(this);
+		}
 	}
 
 	public final Ai_will_do_blockContext ai_will_do_block() throws RecognitionException {
@@ -1372,6 +1452,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_allow; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterAllow(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitAllow(this);
+		}
 	}
 
 	public final AllowContext allow() throws RecognitionException {
@@ -1437,6 +1525,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_name_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterName_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitName_block(this);
+		}
 	}
 
 	public final Name_blockContext name_block() throws RecognitionException {
@@ -1518,6 +1614,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_color_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterColor_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitColor_block(this);
+		}
 	}
 
 	public final Color_blockContext color_block() throws RecognitionException {
@@ -1614,6 +1718,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_provinces_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterProvinces_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitProvinces_block(this);
+		}
 	}
 
 	public final Provinces_blockContext provinces_block() throws RecognitionException {
@@ -1683,6 +1795,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_file_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterFile_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitFile_block(this);
+		}
 	}
 
 	public final File_blockContext file_block() throws RecognitionException {
@@ -1723,6 +1843,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_size_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterSize_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitSize_block(this);
+		}
 	}
 
 	public final Size_blockContext size_block() throws RecognitionException {
@@ -1773,6 +1901,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_allow_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterAllow_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitAllow_block(this);
+		}
 	}
 
 	public final Allow_blockContext allow_block() throws RecognitionException {
@@ -1824,6 +1960,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_factor; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterFactor(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitFactor(this);
+		}
 	}
 
 	public final FactorContext factor() throws RecognitionException {
@@ -1879,6 +2023,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_chance_modifier; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterChance_modifier(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitChance_modifier(this);
+		}
 	}
 
 	public final Chance_modifierContext chance_modifier() throws RecognitionException {
@@ -1969,6 +2121,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_value; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterValue(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitValue(this);
+		}
 	}
 
 	public final ValueContext value() throws RecognitionException {
@@ -2009,6 +2169,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_amount; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterAmount(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitAmount(this);
+		}
 	}
 
 	public final AmountContext amount() throws RecognitionException {
@@ -2042,6 +2210,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_name; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterName(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitName(this);
+		}
 	}
 
 	public final NameContext name() throws RecognitionException {
@@ -2075,6 +2251,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_date; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterDate(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitDate(this);
+		}
 	}
 
 	public final DateContext date() throws RecognitionException {
@@ -2108,6 +2292,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bool; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterBool(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitBool(this);
+		}
 	}
 
 	public final BoolContext bool() throws RecognitionException {
@@ -2148,6 +2340,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_months; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterMonths(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitMonths(this);
+		}
 	}
 
 	public final MonthsContext months() throws RecognitionException {
@@ -2188,6 +2388,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_limit; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterLimit(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitLimit(this);
+		}
 	}
 
 	public final LimitContext limit() throws RecognitionException {
@@ -2245,6 +2453,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_eLSE; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterELSE(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitELSE(this);
+		}
 	}
 
 	public final ELSEContext eLSE() throws RecognitionException {
@@ -2305,6 +2521,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_else_if; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterElse_if(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitElse_if(this);
+		}
 	}
 
 	public final Else_ifContext else_if() throws RecognitionException {
@@ -2379,6 +2603,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_if_statement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterIf_statement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitIf_statement(this);
+		}
 	}
 
 	public final If_statementContext if_statement() throws RecognitionException {
@@ -2469,6 +2701,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_while; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterWhile(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitWhile(this);
+		}
 	}
 
 	public final WhileContext while_() throws RecognitionException {
@@ -2547,6 +2787,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_scope; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterScope(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitScope(this);
+		}
 	}
 
 	public final ScopeContext scope() throws RecognitionException {
@@ -2637,6 +2885,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_scriptedEffect; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterScriptedEffect(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitScriptedEffect(this);
+		}
 	}
 
 	public final ScriptedEffectContext scriptedEffect() throws RecognitionException {
@@ -2714,6 +2970,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_modifier; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterModifier(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitModifier(this);
+		}
 	}
 
 	public final ModifierContext modifier() throws RecognitionException {
@@ -2763,6 +3027,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_skill_scaled_modifier; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterSkill_scaled_modifier(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitSkill_scaled_modifier(this);
+		}
 	}
 
 	public final Skill_scaled_modifierContext skill_scaled_modifier() throws RecognitionException {
@@ -2865,6 +3137,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_effect; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterEffect(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitEffect(this);
+		}
 	}
 
 	public final EffectContext effect() throws RecognitionException {
@@ -3045,6 +3325,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_reverse_remove_opinion; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterReverse_remove_opinion(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitReverse_remove_opinion(this);
+		}
 	}
 
 	public final Reverse_remove_opinionContext reverse_remove_opinion() throws RecognitionException {
@@ -3103,6 +3391,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_remove_opinion; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterRemove_opinion(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitRemove_opinion(this);
+		}
 	}
 
 	public final Remove_opinionContext remove_opinion() throws RecognitionException {
@@ -3161,6 +3457,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_add_opinion; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterAdd_opinion(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitAdd_opinion(this);
+		}
 	}
 
 	public final Add_opinionContext add_opinion() throws RecognitionException {
@@ -3219,6 +3523,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_reverse_add_opinion; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterReverse_add_opinion(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitReverse_add_opinion(this);
+		}
 	}
 
 	public final Reverse_add_opinionContext reverse_add_opinion() throws RecognitionException {
@@ -3278,6 +3590,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_hidden_effect; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterHidden_effect(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitHidden_effect(this);
+		}
 	}
 
 	public final Hidden_effectContext hidden_effect() throws RecognitionException {
@@ -3335,6 +3655,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_add_modifier; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterAdd_modifier(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitAdd_modifier(this);
+		}
 	}
 
 	public final Add_modifierContext add_modifier() throws RecognitionException {
@@ -3402,6 +3730,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_multiply_variable; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterMultiply_variable(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitMultiply_variable(this);
+		}
 	}
 
 	public final Multiply_variableContext multiply_variable() throws RecognitionException {
@@ -3481,6 +3817,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_subtrackt_variable; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterSubtrackt_variable(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitSubtrackt_variable(this);
+		}
 	}
 
 	public final Subtrackt_variableContext subtrackt_variable() throws RecognitionException {
@@ -3560,6 +3904,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_change_variable; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterChange_variable(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitChange_variable(this);
+		}
 	}
 
 	public final Change_variableContext change_variable() throws RecognitionException {
@@ -3639,6 +3991,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_set_variable; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterSet_variable(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitSet_variable(this);
+		}
 	}
 
 	public final Set_variableContext set_variable() throws RecognitionException {
@@ -3718,6 +4078,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_divide_variable; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterDivide_variable(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitDivide_variable(this);
+		}
 	}
 
 	public final Divide_variableContext divide_variable() throws RecognitionException {
@@ -3798,6 +4166,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_export_to_variable; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterExport_to_variable(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitExport_to_variable(this);
+		}
 	}
 
 	public final Export_to_variableContext export_to_variable() throws RecognitionException {
@@ -3874,6 +4250,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_country_event; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCountry_event(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCountry_event(this);
+		}
 	}
 
 	public final Country_eventContext country_event() throws RecognitionException {
@@ -3938,6 +4322,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_mana_trigger; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterMana_trigger(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitMana_trigger(this);
+		}
 	}
 
 	public final Mana_triggerContext mana_trigger() throws RecognitionException {
@@ -3972,6 +4364,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_religion_trigger; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterReligion_trigger(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitReligion_trigger(this);
+		}
 	}
 
 	public final Religion_triggerContext religion_trigger() throws RecognitionException {
@@ -4082,6 +4482,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_trigger; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterTrigger(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitTrigger(this);
+		}
 	}
 
 	public final TriggerContext trigger() throws RecognitionException {
@@ -4292,6 +4700,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_num_of_owned_provinces_with; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterNum_of_owned_provinces_with(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitNum_of_owned_provinces_with(this);
+		}
 	}
 
 	public final Num_of_owned_provinces_withContext num_of_owned_provinces_with() throws RecognitionException {
@@ -4383,6 +4799,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_has_opinion_modifier; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterHas_opinion_modifier(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitHas_opinion_modifier(this);
+		}
 	}
 
 	public final Has_opinion_modifierContext has_opinion_modifier() throws RecognitionException {
@@ -4486,6 +4910,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_calc_true_if; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCalc_true_if(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCalc_true_if(this);
+		}
 	}
 
 	public final Calc_true_ifContext calc_true_if() throws RecognitionException {
@@ -4577,6 +5009,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_check_variable; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCheck_variable(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCheck_variable(this);
+		}
 	}
 
 	public final Check_variableContext check_variable() throws RecognitionException {
@@ -4655,6 +5095,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_trade_share; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterTrade_share(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitTrade_share(this);
+		}
 	}
 
 	public final Trade_shareContext trade_share() throws RecognitionException {
@@ -4713,6 +5161,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_privateer_power; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterPrivateer_power(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitPrivateer_power(this);
+		}
 	}
 
 	public final Privateer_powerContext privateer_power() throws RecognitionException {
@@ -4772,6 +5228,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_scripted_trigger; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterScripted_trigger(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitScripted_trigger(this);
+		}
 	}
 
 	public final Scripted_triggerContext scripted_trigger() throws RecognitionException {
@@ -4829,6 +5293,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_prerequisites; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterPrerequisites(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitPrerequisites(this);
+		}
 	}
 
 	public final PrerequisitesContext prerequisites() throws RecognitionException {
@@ -4886,6 +5358,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_prerequisites_self; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterPrerequisites_self(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitPrerequisites_self(this);
+		}
 	}
 
 	public final Prerequisites_selfContext prerequisites_self() throws RecognitionException {
@@ -4937,6 +5417,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_ai_trigger; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterAi_trigger(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitAi_trigger(this);
+		}
 	}
 
 	public final Ai_triggerContext ai_trigger() throws RecognitionException {
@@ -4980,6 +5468,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_is_triggered_only; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterIs_triggered_only(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitIs_triggered_only(this);
+		}
 	}
 
 	public final Is_triggered_onlyContext is_triggered_only() throws RecognitionException {
@@ -5022,6 +5518,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_region_trigger; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterRegion_trigger(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitRegion_trigger(this);
+		}
 	}
 
 	public final Region_triggerContext region_trigger() throws RecognitionException {
@@ -5061,6 +5565,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_has_global_modifier_value; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterHas_global_modifier_value(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitHas_global_modifier_value(this);
+		}
 	}
 
 	public final Has_global_modifier_valueContext has_global_modifier_value() throws RecognitionException {
@@ -5111,6 +5623,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_is_in_war; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterIs_in_war(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitIs_in_war(this);
+		}
 	}
 
 	public final Is_in_warContext is_in_war() throws RecognitionException {
@@ -5174,6 +5694,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_is_in_war_options; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterIs_in_war_options(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitIs_in_war_options(this);
+		}
 	}
 
 	public final Is_in_war_optionsContext is_in_war_options() throws RecognitionException {
@@ -5358,6 +5886,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_has_opinion; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterHas_opinion(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitHas_opinion(this);
+		}
 	}
 
 	public final Has_opinionContext has_opinion() throws RecognitionException {
@@ -5455,6 +5991,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_pre_effect; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterPre_effect(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitPre_effect(this);
+		}
 	}
 
 	public final Pre_effectContext pre_effect() throws RecognitionException {
@@ -5530,6 +6074,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_conditional_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterConditional_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitConditional_block(this);
+		}
 	}
 
 	public final Conditional_blockContext conditional_block() throws RecognitionException {
@@ -5625,6 +6177,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_diplomatic_action; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterDiplomatic_action(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitDiplomatic_action(this);
+		}
 	}
 
 	public final Diplomatic_actionContext diplomatic_action() throws RecognitionException {
@@ -5731,6 +6291,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_defender_of_faith; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterDefender_of_faith(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitDefender_of_faith(this);
+		}
 	}
 
 	public final Defender_of_faithContext defender_of_faith() throws RecognitionException {
@@ -5853,6 +6421,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_decree_blocks; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterDecree_blocks(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitDecree_blocks(this);
+		}
 	}
 
 	public final Decree_blocksContext decree_blocks() throws RecognitionException {
@@ -5942,6 +6518,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_decree; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterDecree(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitDecree(this);
+		}
 	}
 
 	public final DecreeContext decree() throws RecognitionException {
@@ -6037,6 +6621,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_custom_idea_category; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCustom_idea_category(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCustom_idea_category(this);
+		}
 	}
 
 	public final Custom_idea_categoryContext custom_idea_category() throws RecognitionException {
@@ -6091,6 +6683,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_custom_idea_level; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCustom_idea_level(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCustom_idea_level(this);
+		}
 	}
 
 	public final Custom_idea_levelContext custom_idea_level() throws RecognitionException {
@@ -6131,6 +6731,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_enabled_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterEnabled_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitEnabled_block(this);
+		}
 	}
 
 	public final Enabled_blockContext enabled_block() throws RecognitionException {
@@ -6218,6 +6826,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_custom_idea; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCustom_idea(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCustom_idea(this);
+		}
 	}
 
 	public final Custom_ideaContext custom_idea() throws RecognitionException {
@@ -6319,6 +6935,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_flag_color; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterFlag_color(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitFlag_color(this);
+		}
 	}
 
 	public final Flag_colorContext flag_color() throws RecognitionException {
@@ -6423,6 +7047,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_texture_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterTexture_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitTexture_block(this);
+		}
 	}
 
 	public final Texture_blockContext texture_block() throws RecognitionException {
@@ -6491,6 +7123,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_custom_country_color; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCustom_country_color(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCustom_country_color(this);
+		}
 	}
 
 	public final Custom_country_colorContext custom_country_color() throws RecognitionException {
@@ -6581,6 +7221,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_culture_modifier_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCulture_modifier_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCulture_modifier_block(this);
+		}
 	}
 
 	public final Culture_modifier_blockContext culture_modifier_block() throws RecognitionException {
@@ -6650,6 +7298,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_culture_names; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCulture_names(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCulture_names(this);
+		}
 	}
 
 	public final Culture_namesContext culture_names() throws RecognitionException {
@@ -6742,6 +7398,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_culture_group; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCulture_group(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCulture_group(this);
+		}
 	}
 
 	public final Culture_groupContext culture_group() throws RecognitionException {
@@ -6846,6 +7510,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_culture; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCulture(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCulture(this);
+		}
 	}
 
 	public final CultureContext culture() throws RecognitionException {
@@ -6923,6 +7595,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_country_tags; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCountry_tags(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCountry_tags(this);
+		}
 	}
 
 	public final Country_tagsContext country_tags() throws RecognitionException {
@@ -6979,6 +7659,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_country_color; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCountry_color(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCountry_color(this);
+		}
 	}
 
 	public final Country_colorContext country_color() throws RecognitionException {
@@ -7110,6 +7798,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_common_countires_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCommon_countires_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCommon_countires_block(this);
+		}
 	}
 
 	public final Common_countires_blockContext common_countires_block() throws RecognitionException {
@@ -7185,6 +7881,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_monarch_names; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterMonarch_names(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitMonarch_names(this);
+		}
 	}
 
 	public final Monarch_namesContext monarch_names() throws RecognitionException {
@@ -7277,6 +7981,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_common_country; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCommon_country(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCommon_country(this);
+		}
 	}
 
 	public final Common_countryContext common_country() throws RecognitionException {
@@ -7438,6 +8150,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_trade_goods_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterTrade_goods_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitTrade_goods_block(this);
+		}
 	}
 
 	public final Trade_goods_blockContext trade_goods_block() throws RecognitionException {
@@ -7499,6 +8219,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_culture_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCulture_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCulture_block(this);
+		}
 	}
 
 	public final Culture_blockContext culture_block() throws RecognitionException {
@@ -7560,6 +8288,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_religion_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterReligion_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitReligion_block(this);
+		}
 	}
 
 	public final Religion_blockContext religion_block() throws RecognitionException {
@@ -7615,6 +8351,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_col_simple_attr; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCol_simple_attr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCol_simple_attr(this);
+		}
 	}
 
 	public final Col_simple_attrContext col_simple_attr() throws RecognitionException {
@@ -7701,6 +8445,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_col_region_attr; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCol_region_attr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCol_region_attr(this);
+		}
 	}
 
 	public final Col_region_attrContext col_region_attr() throws RecognitionException {
@@ -7785,6 +8537,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_colonial_region; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterColonial_region(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitColonial_region(this);
+		}
 	}
 
 	public final Colonial_regionContext colonial_region() throws RecognitionException {
@@ -7888,6 +8648,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_tooltip; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterTooltip(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitTooltip(this);
+		}
 	}
 
 	public final TooltipContext tooltip() throws RecognitionException {
@@ -7931,6 +8699,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_custom_tooltip; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCustom_tooltip(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCustom_tooltip(this);
+		}
 	}
 
 	public final Custom_tooltipContext custom_tooltip() throws RecognitionException {
@@ -7986,6 +8762,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_custom_trigger_tooltip; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCustom_trigger_tooltip(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCustom_trigger_tooltip(this);
+		}
 	}
 
 	public final Custom_trigger_tooltipContext custom_trigger_tooltip() throws RecognitionException {
@@ -8052,6 +8836,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_desc; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterDesc(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitDesc(this);
+		}
 	}
 
 	public final DescContext desc() throws RecognitionException {
@@ -8107,6 +8899,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_client_state; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterClient_state(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitClient_state(this);
+		}
 	}
 
 	public final Client_stateContext client_state() throws RecognitionException {
@@ -8173,6 +8973,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_is_blessing; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterIs_blessing(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitIs_blessing(this);
+		}
 	}
 
 	public final Is_blessingContext is_blessing() throws RecognitionException {
@@ -8215,6 +9023,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_sprite; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterSprite(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitSprite(this);
+		}
 	}
 
 	public final SpriteContext sprite() throws RecognitionException {
@@ -8300,6 +9116,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_church_aspect; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterChurch_aspect(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitChurch_aspect(this);
+		}
 	}
 
 	public final Church_aspectContext church_aspect() throws RecognitionException {
@@ -8411,6 +9235,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cot_type; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCot_type(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCot_type(this);
+		}
 	}
 
 	public final Cot_typeContext cot_type() throws RecognitionException {
@@ -8456,6 +9288,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cot_optionals; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCot_optionals(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCot_optionals(this);
+		}
 	}
 
 	public final Cot_optionalsContext cot_optionals() throws RecognitionException {
@@ -8511,6 +9351,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_province_modifier; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterProvince_modifier(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitProvince_modifier(this);
+		}
 	}
 
 	public final Province_modifierContext province_modifier() throws RecognitionException {
@@ -8568,6 +9416,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_global_modifier; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterGlobal_modifier(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitGlobal_modifier(this);
+		}
 	}
 
 	public final Global_modifierContext global_modifier() throws RecognitionException {
@@ -8625,6 +9481,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_state_modifier; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterState_modifier(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitState_modifier(this);
+		}
 	}
 
 	public final State_modifierContext state_modifier() throws RecognitionException {
@@ -8700,6 +9564,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_center_of_trade; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCenter_of_trade(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCenter_of_trade(this);
+		}
 	}
 
 	public final Center_of_tradeContext center_of_trade() throws RecognitionException {
@@ -8777,6 +9649,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_league; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterLeague(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitLeague(this);
+		}
 	}
 
 	public final LeagueContext league() throws RecognitionException {
@@ -8820,6 +9700,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_call_empire_members; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCall_empire_members(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCall_empire_members(this);
+		}
 	}
 
 	public final Call_empire_membersContext call_empire_members() throws RecognitionException {
@@ -8862,6 +9750,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_ai_peace_desire; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterAi_peace_desire(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitAi_peace_desire(this);
+		}
 	}
 
 	public final Ai_peace_desireContext ai_peace_desire() throws RecognitionException {
@@ -8896,6 +9792,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_support_rebels; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterSupport_rebels(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitSupport_rebels(this);
+		}
 	}
 
 	public final Support_rebelsContext support_rebels() throws RecognitionException {
@@ -8939,6 +9843,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_coalition; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCoalition(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCoalition(this);
+		}
 	}
 
 	public final CoalitionContext coalition() throws RecognitionException {
@@ -8982,6 +9894,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_independence; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterIndependence(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitIndependence(this);
+		}
 	}
 
 	public final IndependenceContext independence() throws RecognitionException {
@@ -9025,6 +9945,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_exclusive; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterExclusive(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitExclusive(this);
+		}
 	}
 
 	public final ExclusiveContext exclusive() throws RecognitionException {
@@ -9068,6 +9996,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_holy_war; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterHoly_war(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitHoly_war(this);
+		}
 	}
 
 	public final Holy_warContext holy_war() throws RecognitionException {
@@ -9115,6 +10051,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_attacker_disabled_po; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterAttacker_disabled_po(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitAttacker_disabled_po(this);
+		}
 	}
 
 	public final Attacker_disabled_poContext attacker_disabled_po() throws RecognitionException {
@@ -9166,6 +10110,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_is_valid_for_subject; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterIs_valid_for_subject(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitIs_valid_for_subject(this);
+		}
 	}
 
 	public final Is_valid_for_subjectContext is_valid_for_subject() throws RecognitionException {
@@ -9208,6 +10160,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_war_goal; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterWar_goal(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitWar_goal(this);
+		}
 	}
 
 	public final War_goalContext war_goal() throws RecognitionException {
@@ -9242,6 +10202,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_no_opinion_hit; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterNo_opinion_hit(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitNo_opinion_hit(this);
+		}
 	}
 
 	public final No_opinion_hitContext no_opinion_hit() throws RecognitionException {
@@ -9309,6 +10277,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cb_optionals; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCb_optionals(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCb_optionals(this);
+		}
 	}
 
 	public final Cb_optionalsContext cb_optionals() throws RecognitionException {
@@ -9426,6 +10402,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cb_type; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCb_type(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCb_type(this);
+		}
 	}
 
 	public final Cb_typeContext cb_type() throws RecognitionException {
@@ -9554,6 +10538,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_buildings_trigger; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterBuildings_trigger(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitBuildings_trigger(this);
+		}
 	}
 
 	public final Buildings_triggerContext buildings_trigger() throws RecognitionException {
@@ -9623,6 +10615,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_buildings_effect; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterBuildings_effect(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitBuildings_effect(this);
+		}
 	}
 
 	public final Buildings_effectContext buildings_effect() throws RecognitionException {
@@ -9687,6 +10687,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_manufactory_defines; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterManufactory_defines(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitManufactory_defines(this);
+		}
 	}
 
 	public final Manufactory_definesContext manufactory_defines() throws RecognitionException {
@@ -9747,6 +10755,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bonus_modifier; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterBonus_modifier(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitBonus_modifier(this);
+		}
 	}
 
 	public final Bonus_modifierContext bonus_modifier() throws RecognitionException {
@@ -9780,6 +10796,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cost; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCost(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCost(this);
+		}
 	}
 
 	public final CostContext cost() throws RecognitionException {
@@ -9813,6 +10837,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_time; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterTime(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitTime(this);
+		}
 	}
 
 	public final TimeContext time() throws RecognitionException {
@@ -9847,6 +10879,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_onmap; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterOnmap(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitOnmap(this);
+		}
 	}
 
 	public final OnmapContext onmap() throws RecognitionException {
@@ -9890,6 +10930,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_show_seperate; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterShow_seperate(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitShow_seperate(this);
+		}
 	}
 
 	public final Show_seperateContext show_seperate() throws RecognitionException {
@@ -9951,6 +10999,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_building_attribute; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterBuilding_attribute(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitBuilding_attribute(this);
+		}
 	}
 
 	public final Building_attributeContext building_attribute() throws RecognitionException {
@@ -10029,6 +11085,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_allowed_in_gold_province; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterAllowed_in_gold_province(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitAllowed_in_gold_province(this);
+		}
 	}
 
 	public final Allowed_in_gold_provinceContext allowed_in_gold_province() throws RecognitionException {
@@ -10071,6 +11135,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_make_obsolete; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterMake_obsolete(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitMake_obsolete(this);
+		}
 	}
 
 	public final Make_obsoleteContext make_obsolete() throws RecognitionException {
@@ -10105,6 +11177,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_influencing_fort; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterInfluencing_fort(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitInfluencing_fort(this);
+		}
 	}
 
 	public final Influencing_fortContext influencing_fort() throws RecognitionException {
@@ -10190,6 +11270,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_building; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterBuilding(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitBuilding(this);
+		}
 	}
 
 	public final BuildingContext building() throws RecognitionException {
@@ -10335,6 +11423,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bookmark; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterBookmark(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitBookmark(this);
+		}
 	}
 
 	public final BookmarkContext bookmark() throws RecognitionException {
@@ -10500,6 +11596,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_ancestor_personality; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterAncestor_personality(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitAncestor_personality(this);
+		}
 	}
 
 	public final Ancestor_personalityContext ancestor_personality() throws RecognitionException {
@@ -10670,6 +11774,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_war_priority; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterWar_priority(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitWar_priority(this);
+		}
 	}
 
 	public final War_priorityContext war_priority() throws RecognitionException {
@@ -10714,6 +11826,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_ai_pick_ancestor; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterAi_pick_ancestor(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitAi_pick_ancestor(this);
+		}
 	}
 
 	public final Ai_pick_ancestorContext ai_pick_ancestor() throws RecognitionException {
@@ -10759,6 +11879,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_ai_personality; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterAi_personality(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitAi_personality(this);
+		}
 	}
 
 	public final Ai_personalityContext ai_personality() throws RecognitionException {
@@ -10800,6 +11928,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_start; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterStart(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitStart(this);
+		}
 	}
 
 	public final StartContext start() throws RecognitionException {
@@ -10840,6 +11976,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_can_start_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCan_start_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCan_start_block(this);
+		}
 	}
 
 	public final Can_start_blockContext can_start_block() throws RecognitionException {
@@ -10903,6 +12047,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_objective; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterObjective(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitObjective(this);
+		}
 	}
 
 	public final ObjectiveContext objective() throws RecognitionException {
@@ -10994,6 +12146,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_objectives_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterObjectives_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitObjectives_block(this);
+		}
 	}
 
 	public final Objectives_blockContext objectives_block() throws RecognitionException {
@@ -11066,6 +12226,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_ability; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterAbility(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitAbility(this);
+		}
 	}
 
 	public final AbilityContext ability() throws RecognitionException {
@@ -11145,6 +12313,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_ability_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterAbility_block(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitAbility_block(this);
+		}
 	}
 
 	public final Ability_blockContext ability_block() throws RecognitionException {
@@ -11227,6 +12403,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_age; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterAge(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitAge(this);
+		}
 	}
 
 	public final AgeContext age() throws RecognitionException {
@@ -11335,6 +12519,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_advisor; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterAdvisor(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitAdvisor(this);
+		}
 	}
 
 	public final AdvisorContext advisor() throws RecognitionException {
@@ -11405,6 +12597,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_monarch_power_advisor; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterMonarch_power_advisor(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitMonarch_power_advisor(this);
+		}
 	}
 
 	public final Monarch_power_advisorContext monarch_power_advisor() throws RecognitionException {
@@ -11481,6 +12681,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_missionSeries; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterMissionSeries(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitMissionSeries(this);
+		}
 	}
 
 	public final MissionSeriesContext missionSeries() throws RecognitionException {
@@ -11575,6 +12783,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_slot_missionSeries; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterSlot_missionSeries(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitSlot_missionSeries(this);
+		}
 	}
 
 	public final Slot_missionSeriesContext slot_missionSeries() throws RecognitionException {
@@ -11609,6 +12825,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_generic_missionSeries; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterGeneric_missionSeries(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitGeneric_missionSeries(this);
+		}
 	}
 
 	public final Generic_missionSeriesContext generic_missionSeries() throws RecognitionException {
@@ -11652,6 +12876,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_hasCountryShield_missionSeries; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterHasCountryShield_missionSeries(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitHasCountryShield_missionSeries(this);
+		}
 	}
 
 	public final HasCountryShield_missionSeriesContext hasCountryShield_missionSeries() throws RecognitionException {
@@ -11701,6 +12933,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_potentialOnLoad_missionSeries; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterPotentialOnLoad_missionSeries(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitPotentialOnLoad_missionSeries(this);
+		}
 	}
 
 	public final PotentialOnLoad_missionSeriesContext potentialOnLoad_missionSeries() throws RecognitionException {
@@ -11758,6 +12998,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_potential_missionSeries; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterPotential_missionSeries(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitPotential_missionSeries(this);
+		}
 	}
 
 	public final Potential_missionSeriesContext potential_missionSeries() throws RecognitionException {
@@ -11857,6 +13105,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_missionBlock; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterMissionBlock(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitMissionBlock(this);
+		}
 	}
 
 	public final MissionBlockContext missionBlock() throws RecognitionException {
@@ -11957,6 +13213,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_icon_mission; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterIcon_mission(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitIcon_mission(this);
+		}
 	}
 
 	public final Icon_missionContext icon_mission() throws RecognitionException {
@@ -11990,6 +13254,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_position_mission; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterPosition_mission(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitPosition_mission(this);
+		}
 	}
 
 	public final Position_missionContext position_mission() throws RecognitionException {
@@ -12023,6 +13295,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_completedBy_mission; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterCompletedBy_mission(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitCompletedBy_mission(this);
+		}
 	}
 
 	public final CompletedBy_missionContext completedBy_mission() throws RecognitionException {
@@ -12061,6 +13341,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_requiredMissions_mission; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterRequiredMissions_mission(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitRequiredMissions_mission(this);
+		}
 	}
 
 	public final RequiredMissions_missionContext requiredMissions_mission() throws RecognitionException {
@@ -12118,6 +13406,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_provincesToHighlight_mission; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterProvincesToHighlight_mission(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitProvincesToHighlight_mission(this);
+		}
 	}
 
 	public final ProvincesToHighlight_missionContext provincesToHighlight_mission() throws RecognitionException {
@@ -12172,6 +13468,14 @@ public class EU4GrammarParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_aiWeight_mission; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).enterAiWeight_mission(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EU4GrammarParserListener ) ((EU4GrammarParserListener)listener).exitAiWeight_mission(this);
+		}
 	}
 
 	public final AiWeight_missionContext aiWeight_mission() throws RecognitionException {
